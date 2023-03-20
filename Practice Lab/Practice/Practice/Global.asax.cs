@@ -10,8 +10,12 @@ namespace Practice
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        //main function
         protected void Application_Start()
         {
+            //initializers
+            //globally initialization
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

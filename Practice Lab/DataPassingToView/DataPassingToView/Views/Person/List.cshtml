@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<span>
+    @ViewBag.a +@ViewBag.b =@ViewBag.c
+</span><br />
+<span>
+    @ViewData["A"] +@ViewData["B"] =@ViewData["C"]
+</span>
+<table class="table table-bordered">
+    <tr>
+        <td>Name</td>
+        <td>Id</td>
+        <td>Date of Birth</td>
+    </tr>
+    <tr>
+        <td>MD.SHAHZAD Hussain Rayied</td>
+        <td>201</td>
+        <td>13 April 2000</td>
+    </tr>
+    <tr>
+        <td>Sabbir</td>
+        <td>202</td>
+        <td>14 April 2000</td>
+    </tr>
+
+</table>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Name</td>
+
+    </tr>
+    @* @for (int i = 0; i < ViewBag.Names.Length; i++)
+        {
+           <tr>
+               <td>
+                   @ViewBag.Names[i]
+               </td>
+           </tr>
+        }
+    *@
+
+    @foreach (var item in ViewBag.Names)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+        </tr>
+
+    }
+    
+        
+
+
+</table>

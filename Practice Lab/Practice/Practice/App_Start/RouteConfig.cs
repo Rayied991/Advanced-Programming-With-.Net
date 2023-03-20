@@ -11,6 +11,7 @@ namespace Practice
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //request comes here then it goes to controller
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
