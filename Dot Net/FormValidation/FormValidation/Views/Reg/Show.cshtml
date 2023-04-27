@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Id</th>
+        <th>Gender</th>
+        <th>Profession</th>
+        <th>Hobbies</th>
+        <th>Dob</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Id</td>
+            <td>@item.Profession</td>
+            <td>@item.Hobbies</td>
+            <td>@item.Dob</td>
+        </tr>
+    }
+</table>
+

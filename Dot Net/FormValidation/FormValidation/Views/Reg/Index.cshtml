@@ -1,0 +1,59 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    bool HobbiesCheck(string hobby)
+    {
+        if (Model != null && Model.Hobbies != null)
+        {
+            foreach (var item in Model.Hobbies)
+            {
+                if (item.Equals(hobby)) return true;
+            }
+        }
+        return false;
+    }
+}
+<h2>Registration Page</h2>
+@Html.ValidationSummary()
+<form method="post">
+    Name:<input type="text" name="Name" placeholder="Enter Your Name?" class="form-control" value="@(Model ==null ? "":Model.Name)" />
+    <span class="text-danger">@Html.ValidationMessage("Name")</span> <br />
+    <br />
+    Id:<input type="text" name="Id" placeholder="Enter Your Id?" class="form-control" value="@(Model ==null ? "":Model.Id)" />
+    <span class="text-danger">@Html.ValidationMessage("Id")</span>
+    <br />
+    Gender:<input type="radio" name="Gender" value="Male" />Male
+    <input type="radio" name="Gender" value="Female" />Female
+    <span class="text-danger">@Html.ValidationMessage("Gender")</span>
+    <br /><br />
+    Profession:<br />
+    <select class="form-control" name="Profession">
+        <option selected hidden>Select</option>
+        <option>Student</option>
+        <option>Teacher</option>
+    </select>
+    <span class="text-danger">@Html.ValidationMessage("Profession")</span>
+    Hobbies:
+    <input type="checkbox" checked=@HobbiesCheck("Games") name="Hobbies[]" value="Games" />Games
+    <input type="checkbox" checked=@HobbiesCheck("Sports") name="Hobbies[]" value="Sports" />Sports
+    <input type="checkbox" checked=@HobbiesCheck("Travelling") name="Hobbies[]" value="Travelling" />Travelling
+    <input type="checkbox" checked=@HobbiesCheck("Music") name="Hobbies[]" value="Music" />Music
+    <span class="text-danger">@Html.ValidationMessage("Hobbies")</span>
+    <br />
+    Date of Birth:<input type="date" name="Dob" value="@(Model ==null ? "":Model.Dob)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("Dob")</span>
+    <br />
+    <center>
+        <input type="submit" value="Register" class="btn btn-danger">
+    </center>
+
+</form>
+
+
+
+
+
