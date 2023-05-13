@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app=angular.module("my-app",[]) ;
+    // modulle name and app name will be same " "[curly braces]
+    //app.controller('name',function(){});
+    app.controller('frstCtrl',function($scope){
+       $scope.name="Abir";
+
+    });
+    app.controller('scndCtrl',function($scope){//dependency injection=scope
+        $scope.name="Rahim";
+
+    });
+
+    app.controller('thrdCtrl',function($scope){
+        $scope.names=["Tanvir","Abir","Rahim","Karim"];
+
+    });
+    app.controller('loginCtrl',function($scope){
+        $scope.login=function(){
+            var v=$scope.l;
+            debugger;
+        }
+    });
+
+    </script>
+<body ng-app="my-app">
+        <div>
+            <!--no angular-->
+        </div>
+        <div ng-controller="frstCtrl">
+            {{name}}
+        </div>
+<!--Angular js provided html attribute=directive-->
+<!--ng-app(all built in directive starts with ng)-->
+<!--ng-model(input type er sathe variable bind korte chai) ng-model="name// js variable"-->
+<!--angular module-> specific div er jonno js er specific function assign korbe; function r kaj- specific block ke control korbe-->
+<!--function binding with html is called controller-->
+<!--scope -1.Normal 2.Root 
+   controller koi kaj korbe etai scope[local scope]-->
+        <div ng-controller="scndCtrl">
+        <input type="text" ng-model="name">
+        <!--printing js variable-->
+        <p>{{name}}</p><!--way-1-->
+        <p ng-bind="name"></p><!--way-2-->
+        </div>
+        <div ng-controller="thrdCtrl">
+            <ul>
+                <!--ng-repeat=repeat the html element-->
+                <li ng-repeat="n in names">
+                    {{n}}
+
+                </li>
+            </ul>
+            <table border="1">
+                <tr ng-repeat=" n in names">
+                    <td>
+                        {{n}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div ng-controller="loginCtrl">
+            <form ng-submit="login()">
+                <input type="text" ng-model="l.uname" placeholder="Enter your UserName"><br>
+                <input type="password" ng-model="l.pass" placeholder="Enter your Passowrd"><br>
+                <input type="submit"><br>
+            </form>
+
+        </div>
+
+</body>
+</html>
